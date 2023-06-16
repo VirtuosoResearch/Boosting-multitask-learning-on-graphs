@@ -1,4 +1,4 @@
-# Overview
+### Overview
 
 This repository provided an algorithm as a generic boosting procedure that improves multitask learning on graphs. The algorithm cluster graph learning tasks into multiple groups and train one graph neural network for each group. In the procedure, we first model higher-order task affinities by sampling random task subsets and evaluating multitask performances. Then, we find related task groupings through clustering task affinity scores. 
 
@@ -7,8 +7,6 @@ This repository provided an algorithm as a generic boosting procedure that impro
 **Community detection.** We provide the datasets for conducting community detection named `data.zip` under the `./data/` folder used. Unzip the file under the folder, then one can directly load them in the code. 
 
 **Molecule property prediction.** We conduct experiments on graph multi-task learning datasets on molecule graph prediction tasks. Our code directly downloads the datasets inside the script. Please pre-install the `ogb` and `torch-geometric` packages. 
-
-<br/>
 
 ### **Section 1: Overlapping Community detection**
 
@@ -127,5 +125,4 @@ Thanks to the authors of the following repositories for providing their implemen
 
 - [**Open-Graph-Benchmark**](https://github.com/snap-stanford/ogb)
 - [**TUDatasets**](https://github.com/chrsmrrs/tudataset)
-
 - [**Large-Scale-GCN-Benchmarking**](https://github.com/VITA-Group/Large_Scale_GCN_Benchmarking)
