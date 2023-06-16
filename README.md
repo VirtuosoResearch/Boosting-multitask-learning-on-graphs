@@ -8,6 +8,8 @@ This repository provided an algorithm as a generic boosting procedure that impro
 
 **Molecule property prediction.** We conduct experiments on graph multi-task learning datasets on molecule graph prediction tasks. Our code directly downloads the datasets inside the script. Please pre-install the `ogb` and `torch-geometric` packages. 
 
+<br/>
+
 ### **Section 1: Overlapping Community detection**
 
 Use `train_multitask.py` for the experiments of training a GNN on community detection tasks. Please specify the following key parameters:
