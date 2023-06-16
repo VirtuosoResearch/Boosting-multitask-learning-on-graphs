@@ -2,15 +2,11 @@
 
 This repository provided an algorithm as a generic boosting procedure that improves multitask learning on graphs. The algorithm cluster graph learning tasks into multiple groups and train one graph neural network for each group. In the procedure, we first model higher-order task affinities by sampling random task subsets and evaluating multitask performances. Then, we find related task groupings through clustering task affinity scores. 
 
-<br/>
-
 ### Data Preparation
 
 **Community detection.** We provide the datasets for conducting community detection named `data.zip` under the `./data/` folder used. Unzip the file under the folder, then one can directly load them in the code. 
 
 **Molecule property prediction.** We conduct experiments on graph multi-task learning datasets on molecule graph prediction tasks. Our code directly downloads the datasets inside the script. Please pre-install the `ogb` and `torch-geometric` packages. 
-
-<br/>
 
 ### **Section 1: Overlapping Community detection**
 
@@ -93,8 +89,6 @@ python train_sample_tasks.py --dataset alchemy_full\
     --task_set_name sample_alchemy --save_name sample_alchemy
 ```
 
-<br/>
-
 ### Requirements
 
 Please install the requirements before launching the experiments:
@@ -112,8 +106,6 @@ We list the key packages used in our code:
 - `torchmetrics>=0.8.2`
 - `ogb>=1.3.4`
 
-<br/>
-
 ### Citation
 
 If you find this repository useful or happen to use it in a research paper, please cite our work with the following bib information.
@@ -126,8 +118,6 @@ If you find this repository useful or happen to use it in a research paper, plea
   year={2023}
 }
 ```
-
-<br/>
 
 ### Ackonwledgement
 
