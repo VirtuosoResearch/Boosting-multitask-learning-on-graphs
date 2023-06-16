@@ -17,7 +17,7 @@ Use `train_multitask.py` for the experiments of training a GNN on community dete
 - `--task_idxes` specifies the indexes of tasks that the model is trained on. Use the numbers from `0`  up to the number of tasks. Use space in between the indexes. 
 - `--save_name` specifies the filename that saves the training results. Specify a name for the file, if one is going to use the results later.  
 
-We show an example below that runs a SIGN model on the youtube dataset: 
+We show an example below that trains a SIGN model on the Youtube dataset: 
 
 ```python
 python train_multitask.py --dataset youtube --feature_dim 128\
@@ -38,7 +38,7 @@ Use `train_sample_tasks.py` for sampling tasks and evaluating MTL performance on
 - `--task_set_name` specifies the name of the file used for saving the sampled subsets. 
 - `--save_name` specifies the filename that saves the training results. 
 
-We show an example below that conducts the sampling process on the youtube dataset: 
+We show an example below that samples subsets of tasks on the Youtube dataset: 
 
 ```python
 python train_sample_tasks.py --dataset youtube\
@@ -48,7 +48,8 @@ python train_sample_tasks.py --dataset youtube\
     --task_set_name sample_youtube --save_name sample_youtube
 ```
 
-After sampling, we estimate the task affinities from the results and conduct clustering on task affinities to obtain task groups. We show a script to cluster tasks under `./notebooks/run_task_grouping.py`. 
+Lastly, we conduct clustering on task affinity scores and generate task indexes of each task group. 
+See an example to generate task groupings in `/notebooks/run_task_grouping.py`. 
 
 <br/>
 
@@ -82,7 +83,7 @@ python train_multitask.py --dataset molpcba --model gine\
 
 Use `train_sample_tasks.py` and change the `--dataset` to `alchemy_full`, `QM9`, or `molpcba`. The other parameters follow the ones used in community detection. For example: 
 
-```
+```python
 python train_sample_tasks.py --dataset alchemy_full\
     --epochs 20 --downsample 0.2 --device 3\
     --num_samples 200 --min_task_num 4 --max_task_num 4\
