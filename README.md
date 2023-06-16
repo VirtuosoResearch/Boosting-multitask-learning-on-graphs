@@ -2,13 +2,17 @@
 
 This repository provided an algorithm as a generic boosting procedure that improves multitask learning on graphs. The algorithm cluster graph learning tasks into multiple groups and train one graph neural network for each group. In the procedure, we first model higher-order task affinities by sampling random task subsets and evaluating multitask performances. Then, we find related task groupings through clustering task affinity scores. 
 
+<br/>
+
 ### Data Preparation
 
 **Community detection.** We provide the datasets for conducting community detection named `data.zip` under the `./data/` folder used. Unzip the file under the folder, then one can directly load them in the code. 
 
 **Molecule property prediction.** We conduct experiments on graph multi-task learning datasets on molecule graph prediction tasks. Our code directly downloads the datasets inside the script. Please pre-install the `ogb` and `torch-geometric` packages. 
 
-### **Section 1: Overlapping Community detection.**
+<br/>
+
+### **Section 1: Overlapping Community detection**
 
 Use `train_multitask.py` for the experiments of training a GNN on community detection tasks. Please specify the following key parameters:
 
@@ -17,7 +21,7 @@ Use `train_multitask.py` for the experiments of training a GNN on community dete
 - `--task_idxes` specifies the indexes of tasks that the model is trained on. Use the numbers from `0`  up to the number of tasks. Use space in between the indexes. 
 - `--save_name` specifies the filename that saves the training results. Specify a name for the file, if one is going to use the results later.  
 
-We show an example below that runs a gnn model on the youtube dataset. Note that there are other parameters for the initialization of the model. 
+We show an example below that runs a SIGN model on the youtube dataset: 
 
 ```python
 python train_multitask.py --dataset youtube --feature_dim 128\
@@ -26,6 +30,8 @@ python train_multitask.py --dataset youtube --feature_dim 128\
     --save_name test --task_idxes 0 1 2 3 4 
 
 ```
+
+<br/>
 
 Use `train_sample_tasks.py` for sampling tasks and evaluating MTL performance on the trained models. Please specify the following key parameters.
 
@@ -36,7 +42,7 @@ Use `train_sample_tasks.py` for sampling tasks and evaluating MTL performance on
 - `--task_set_name` specifies the name of the file used for saving the sampled subsets. 
 - `--save_name` specifies the filename that saves the training results. 
 
-We show an example below that conducts the sampling process on the youtube dataset. 
+We show an example below that conducts the sampling process on the youtube dataset: 
 
 ```python
 python train_sample_tasks.py --dataset youtube\
@@ -48,7 +54,9 @@ python train_sample_tasks.py --dataset youtube\
 
 After sampling, we estimate the task affinities from the results and conduct clustering on task affinities to obtain task groups. We show a script to cluster tasks under `./notebooks/run_task_grouping.py`. 
 
-### **Section 2: Molecule property prediction.**
+<br/>
+
+### **Section 2: Molecule property prediction**
 
 Use `train_multitask.py` and change the `--dataset` to `alchemy_full`, `QM9`, or `molpcba`. The other parameters follow the ones used in community detection.
 
@@ -74,6 +82,8 @@ python train_multitask.py --dataset molpcba --model gine\
     --save_name test --task_idx 0 1 2 3 4
 ```
 
+<br/>
+
 Use `train_sample_tasks.py` and change the `--dataset` to `alchemy_full`, `QM9`, or `molpcba`. The other parameters follow the ones used in community detection. For example: 
 
 ```
@@ -82,6 +92,8 @@ python train_sample_tasks.py --dataset alchemy_full\
     --num_samples 200 --min_task_num 4 --max_task_num 4\
     --task_set_name sample_alchemy --save_name sample_alchemy
 ```
+
+<br/>
 
 ### Requirements
 
@@ -99,3 +111,29 @@ We list the key packages used in our code:
 - `pytorch-lightning>1.5.10`
 - `torchmetrics>=0.8.2`
 - `ogb>=1.3.4`
+
+<br/>
+
+### Citation
+
+If you find this repository useful or happen to use it in a research paper, please cite our work with the following bib information.
+
+```
+@article{li2023boosting,
+  title={Boosting Multitask Learning on Graphs through Higher-Order Task Affinities},
+  author={Li, Dongyue and Ju, Haotian and Sharma, Aneesh and Zhang, Hongyang R},
+  journal={SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)},
+  year={2023}
+}
+```
+
+<br/>
+
+### Ackonwledgement
+
+Thanks to the authors of the following repositories for providing their implementation publicly available, which greatly helps us develop this code.
+
+- [**Open-Graph-Benchmark**](https://github.com/snap-stanford/ogb)
+- [**TUDatasets**](https://github.com/chrsmrrs/tudataset)
+
+- [**Large-Scale-GCN-Benchmarking**](https://github.com/VITA-Group/Large_Scale_GCN_Benchmarking)
