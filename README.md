@@ -1,6 +1,6 @@
 ### Overview
 
-This repository provided an algorithm as a generic boosting procedure that improves multitask learning on graphs. The algorithm cluster graph learning tasks into multiple groups and train one graph neural network for each group. In the procedure, we first model higher-order task affinities by sampling random task subsets and evaluating multitask performances. Then, we find related task groupings through clustering task affinity scores. 
+This repository provided an algorithm as a generic boosting procedure for multitask learning on graphs, which is presented at KDD'23, Long Beach. The algorithm clusters graph learning tasks into multiple groups and trains one graph neural network for each group. In the procedure, we first model higher-order task affinities by sampling random task subsets and evaluating multitask performances. Then, we find related task groupings through clustering task affinity scores. 
 
 ### Data Preparation
 
@@ -15,7 +15,7 @@ Use `train_multitask.py` for the experiments of training a GNN on community dete
 - `--dataset` specifies the dataset. Please choose among `amazon`, `youtube`, `dblp`, and `livejournal`. 
 - `--model` specifies the gnn model. We mainly used `sign` in our experiments. 
 - `--task_idxes` specifies the indexes of tasks that the model is trained on. Use the numbers from `0`  up to the number of tasks. Use space in between the indexes. 
-- `--save_name` specifies the filename that saves the training results. Specify a name for the file, if one is going to use the results later.  
+- `--save_name` specifies the filename that saves the training results. Specify a name for the file if one will use the results later.  
 
 We show an example below that trains a SIGN model on the Youtube dataset: 
 
@@ -35,7 +35,7 @@ Use `train_sample_tasks.py` for sampling tasks and evaluating MTL performance on
 - `--num_samples` specifies the number of sampled subsets.
 - `--min_task_num` specifies the minimum number of tasks in a subset.
 - `--max_task_num` specifies the maximum number of tasks in a subset. 
-- `--task_set_name` specifies the name of the file used for saving the sampled subsets. 
+- `--task_set_name` specifies the file name for saving the sampled subsets. 
 - `--save_name` specifies the filename that saves the training results. 
 
 We show an example below that samples subsets of tasks on the Youtube dataset: 
@@ -48,8 +48,8 @@ python train_sample_tasks.py --dataset youtube\
     --task_set_name sample_youtube --save_name sample_youtube
 ```
 
-Lastly, we conduct clustering on task affinity scores and generate task indexes of each task group. 
-See an example to generate task groupings in `/notebooks/run_task_grouping.py`. 
+Lastly, we conduct clustering on task affinity scores and generate task indexes for each task group. 
+See an example to generate task groupings in `/notebooks/run_task_grouping.py.` 
 
 <br/>
 
@@ -115,12 +115,12 @@ If you find this repository useful or happen to use it in a research paper, plea
 @article{li2023boosting,
   title={Boosting Multitask Learning on Graphs through Higher-Order Task Affinities},
   author={Li, Dongyue and Ju, Haotian and Sharma, Aneesh and Zhang, Hongyang R},
-  journal={SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)},
+  journal={SIGKDD Conference on Knowledge Discovery and Data Mining},
   year={2023}
 }
 ```
 
-### Ackonwledgement
+### Acknowledgment
 
 Thanks to the authors of the following repositories for providing their implementation publicly available, which greatly helps us develop this code.
 
